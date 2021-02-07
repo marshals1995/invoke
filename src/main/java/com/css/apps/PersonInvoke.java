@@ -17,7 +17,7 @@ public class PersonInvoke {
         Method getName = clazz.getMethod("getName");
         Person person = new Person();
         //调用invoke方法来调用
-        setName.invoke(person,"marshals");
+        setName.invoke(person,"marshal");
         System.out.println(getName.invoke(person));
     }
 }
