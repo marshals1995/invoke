@@ -7,7 +7,8 @@ package com.css.apps;
  */
 public class Mode03 {
     /**
-     * 使用Class类内部定义的一个static方法，主要使用
+     * 使用Class类内部定义的一个static方法，主要使用·取得Class类对象：
+     * public static Class<?>forName(String className) throwsClassNotFoundException
      */
     public static void main(String[] args) throws ClassNotFoundException {
         //取得Class对象
