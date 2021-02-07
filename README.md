@@ -1,15 +1,13 @@
 # invoke
-1、以上只是利用了Class类作为了反射实例化对象的基本应用，但是对于一个实例化对象而言，它需要调用类之中的构造方法、
-   普通方法、属性，而这些操作都可以通过反射机制完成。
-2、调用构造
-    使用反射机制也可以取得类之中的构造方法，这个方法在Class类之中已经明确定义了：
-    以下两个方法：
-    取得一个类的全部构造：
-    public Constructor<?>[] getConstructors() throws SecurityException
-    取得一个类的指定参数构造：
-    public Constructor<T> getConstructor(Class<?>... parameterTypes) 
-        throws NoSuchMethodException, SecurityException
-    现在发现以上的两个方法返回的都是java.lang.reflect.Constructor类的对象。
-3、在之前强调的一个简单Java类必须存在一个无参构造方法，否则要传参。
-4、调用无参构造方法实例化对象要比调用有参构造的更加简单、方便，所以在日后的所有开发之中，凡是有简单Java类出现的地方，
-   都一定要提供无参构造
+1、invoke调用普通方法；
+2、当取得了一个类实例化对象之后，下面最需要调用的肯定是类之中的方法，所以可以继续使用Class类取得一个类中所定义的方法定义：
+    ·取得全部方法：public Method[] getMethods()throws SecurityException；
+    ·取得指定方法：public Method getMethod(Stringname, Class<?>... parameterTypes) 
+        throws NoSuchMethodException,SecurityException
+    发现以上的方法返回的都是java.lang.reflect.Method类的对象。
+3、但是取得了Method类对象最大的作用不再于方法的列出（方法的列出都在开发工具上使用了），但是对于取得了Method类对象之
+    后还有一个最大的功能，就是可以利用反射调用类中的方法：
+    ·调用方法：public Object invoke(Objectobj, Object... args) throws IllegalAccessException,
+    IllegalArgumentException,InvocationTargetException
+    之前调用类中方法的时候使用的都是“对象.方法”，但是现在有了反射之后，可以直接利用Object类调用指定子类的操作方法。
+    （同时解释一下，为什么setter、getter方法的命名要求如此严格）。
