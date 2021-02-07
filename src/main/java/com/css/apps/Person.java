@@ -9,19 +9,12 @@ import javax.persistence.Table;
 
 /**
  * @author marshal
- * @date 2021/2/4
+ * @date 2021/2/7
  * @description
  */
-@Data
-@Entity
-@Table(name = "PERSON")
 public class Person {
-    @Id
-    @Column(name = "NAME")
     private String name;
-    @Column(name = "AGE")
     private Integer age;
-    @Column(name="GENDER")
     private Integer gender;
 
     public String getName() {
